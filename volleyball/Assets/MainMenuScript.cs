@@ -16,8 +16,5 @@ public class MainMenuScript : MonoBehaviour
         Debug.Log("Exited game");
     }
 
-    public void ReturnToMenu()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    }
+    
 }

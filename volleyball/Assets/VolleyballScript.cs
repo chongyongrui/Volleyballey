@@ -16,13 +16,12 @@ public class VolleyballScript : MonoBehaviour
 
     void Update()
     {
-        
+        myRigidbody.rotation += Random.Range(-1,1);
     }
 
     public void Bounce()
     {
         Debug.Log("Bounced");
-        GetComponent<AudioSource>().Play();
         myRigidbody.velocity = Vector2.up * Random.Range(6,20);
         myRigidbody.rotation += Random.Range(20,50);
     }
