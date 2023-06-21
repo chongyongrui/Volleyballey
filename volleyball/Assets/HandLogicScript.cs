@@ -10,6 +10,9 @@ public class HandLogicScript : MonoBehaviour
     public Sprite handsUp;
     public Sprite handsDown;
 
+    [SerializeField]
+    private AudioClip _clip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +55,7 @@ public class HandLogicScript : MonoBehaviour
     {
         Debug.Log("Hit");
         logic.addScore();
-        //ballLogic.Bounce();
+        AudioSource.PlayClipAtPoint(_clip, transform.position);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = handsUp;
         Invoke("resetHandSprite", (float)0.23);
 
