@@ -6,6 +6,10 @@ public class HandLogicScript : MonoBehaviour
 {
     public LogicScript logic;
     public VolleyballScript ballLogic;
+    public float moveSpeed = 1;
+    public Sprite handsUp;
+    public Sprite handsDown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,26 +20,47 @@ public class HandLogicScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Vector3 position = this.transform.position;
-            position.x--;
-            this.transform.position = position;
-        }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        float currPos = transform.position.x;
+        if (currPos < 64.0 && currPos > -64)
         {
-            Vector3 position = this.transform.position;
-            position.x++;
-            this.transform.position = position;
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.position = transform.position + (Vector3.left * moveSpeed) * Time.deltaTime * 20;
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.position = transform.position + (Vector3.right * moveSpeed) * Time.deltaTime * 20;
+
+            }
         }
 
     }
 
-    public void OnTriggerEnter2D (Collider2D collision)
+    public void OnTriggerEnter(UnityEngine.Collider other)
     {
+        Debug.Log("Hit");
         logic.addScore();
         ballLogic.Bounce();
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = handsUp;
 
+
+    }
+    void OnCollisionEnter2D(UnityEngine.Collision2D collision)
+    {
+        Debug.Log("Hit");
+        logic.addScore();
+        //ballLogic.Bounce();
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = handsUp;
+        Invoke("resetHandSprite", (float)0.23);
+
+
+    }
+
+    void resetHandSprite()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = handsDown;
     }
 }

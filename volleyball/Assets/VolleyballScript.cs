@@ -21,7 +21,8 @@ public class VolleyballScript : MonoBehaviour
 
     public void Bounce()
     {
-        myRigidbody.velocity = Vector2.up * Random.Range(10, 20);
+        Debug.Log("Bounced");
+        myRigidbody.velocity = Vector2.up * Random.Range(6,20);
         myRigidbody.rotation += Random.Range(20,50);
     }
 
