@@ -16,14 +16,22 @@ public class NameSaver : MonoBehaviour
 
     public GameObject mainMenu;
 
+    public Text savedName;
+
     public void SaveName()
     {
         playerName = inputField.GetComponent<Text>().text;
         textDisplay.GetComponent<Text>().text = playerName;
+        PlayerPrefs.SetString("Name", playerName);
     }
 
     public void ReturnToMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+    }
+
+    public void Start()
+    {
+        textDisplay.GetComponent<Text>().text = PlayerPrefs.GetString("Name","User");
     }
 }

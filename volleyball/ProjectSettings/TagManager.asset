@@ -7,6 +7,7 @@ TagManager:
   - logic
   - ball logic
   - end game logic
+  - options logic
   layers:
   - Default
   - TransparentFX

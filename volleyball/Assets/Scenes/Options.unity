@@ -612,6 +612,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: options menu canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2643223669891408355, guid: f20053a1ed225cf4399bf80426ae83db, type: 3}
+      propertyPath: m_TagString
+      value: options logic
+      objectReference: {fileID: 0}
     - target: {fileID: 2789260295850850231, guid: f20053a1ed225cf4399bf80426ae83db, type: 3}
       propertyPath: m_Name
       value: back button
