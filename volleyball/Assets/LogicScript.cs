@@ -10,6 +10,7 @@ public class LogicScript : MonoBehaviour
 {
 
     public int playerScore;
+    public string playerName;
     public TMP_Text scoreText;
     public GameObject gameOverScreen;
     public TMP_Text highscore;
