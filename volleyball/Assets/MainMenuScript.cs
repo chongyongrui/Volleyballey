@@ -15,7 +15,7 @@ public class MainMenuScript : MonoBehaviour
     }
     void Update()
     {
-        playerName.text = PlayerPrefs.GetString("Name", "User");
+        //playerName.text = PlayerPrefs.GetString("Name", "User");
     }
     public void PlayGame()
     {

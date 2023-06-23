@@ -18,11 +18,23 @@ public class NameSaver : MonoBehaviour
 
     public Text savedName;
 
+    public saved jsonlogic;
+    public playerListClass jsonlist;
+
     public void SaveName()
     {
         playerName = inputField.GetComponent<Text>().text;
         textDisplay.GetComponent<Text>().text = playerName;
         PlayerPrefs.SetString("Name", playerName);
+        List<PlayerInfo> list = new List<PlayerInfo>();
+        if (jsonlist.PlayerExists(playerName, jsonlist.list) == false)
+        {
+            jsonlist.AddPlayer(playerName, jsonlist.list);
+            Debug.Log("ADDED new player to json list");
+        }
+        //jsonlist.SaveToJson(jsonlist.list);
+        //Debug.Log("saved to j");
+
     }
 
     public void ReturnToMenu()
@@ -33,5 +45,6 @@ public class NameSaver : MonoBehaviour
     public void Start()
     {
         textDisplay.GetComponent<Text>().text = PlayerPrefs.GetString("Name","User");
+        jsonlogic = GameObject.FindGameObjectWithTag("jsonsaver").GetComponent<saved>();
     }
 }

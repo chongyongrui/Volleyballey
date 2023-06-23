@@ -8,6 +8,7 @@ TagManager:
   - ball logic
   - end game logic
   - options logic
+  - jsonsaver
   layers:
   - Default
   - TransparentFX
