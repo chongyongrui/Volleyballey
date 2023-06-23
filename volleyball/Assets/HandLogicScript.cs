@@ -53,11 +53,12 @@ public class HandLogicScript : MonoBehaviour
     }
     void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
-        Debug.Log("Hit");
+        Debug.Log("Hit on collision");
         logic.addScore();
         AudioSource.PlayClipAtPoint(_clip, transform.position);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = handsUp;
         Invoke("resetHandSprite", (float)0.23);
+        
 
 
     }
