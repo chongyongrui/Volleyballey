@@ -22,6 +22,7 @@ public class LogicScript : MonoBehaviour
     private void Start()
     {
         highscore.text = PlayerPrefs.GetInt("Highscore",0).ToString();
+        playerName = PlayerPrefs.GetString("Name", "User");
         //LoadPlayer();
     }
 

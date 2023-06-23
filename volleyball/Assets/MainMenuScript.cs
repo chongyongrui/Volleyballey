@@ -10,6 +10,7 @@ public class MainMenuScript : MonoBehaviour
     private void Start()
     {
         playerName.text = PlayerPrefs.GetString("Name", "User").ToString();
+        
         //LoadPlayer();
     }
     void Update()
